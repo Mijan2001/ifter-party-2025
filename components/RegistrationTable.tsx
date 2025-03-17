@@ -32,14 +32,11 @@ export default function RegistrationTable() {
         const checkAdmin = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch(
-                    'https://unique-seahorse-d6680d.netlify.app/api/check-admin',
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
+                const response = await fetch('/api/check-admin', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
                     }
-                );
+                });
                 const data = await response.json();
                 setIsAdmin(data.isAdmin);
             } catch (error) {
@@ -49,9 +46,7 @@ export default function RegistrationTable() {
 
         const fetchRegistrations = async () => {
             try {
-                const response = await fetch(
-                    'https://unique-seahorse-d6680d.netlify.app/api/registrations'
-                );
+                const response = await fetch('/api/registrations');
                 const data = await response.json();
 
                 if (!Array.isArray(data)) {
@@ -76,15 +71,12 @@ export default function RegistrationTable() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(
-                `https://unique-seahorse-d6680d.netlify.app/api/registrations/${id}`,
-                {
-                    method: 'DELETE',
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+            const response = await fetch(`/api/registrations/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${token}`
                 }
-            );
+            });
 
             if (response.ok) {
                 setRegistrations(prev => prev.filter(reg => reg._id !== id));
