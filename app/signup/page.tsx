@@ -45,16 +45,19 @@ export default function SignUpPage() {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             setLoading(true);
-            const response = await fetch('/api/auth/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: values.email,
-                    password: values.password
-                })
-            });
+            const response = await fetch(
+                'https://wondrous-platypus-ca5251.netlify.app/api/auth/signup',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: values.email,
+                        password: values.password
+                    })
+                }
+            );
 
             const data = await response.json();
 

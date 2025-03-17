@@ -45,13 +45,16 @@ export default function RegistrationForm() {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(values)
-            });
+            const response = await fetch(
+                'https://wondrous-platypus-ca5251.netlify.app/api/register',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(values)
+                }
+            );
 
             const data = await response.json();
 

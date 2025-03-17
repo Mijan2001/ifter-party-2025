@@ -32,11 +32,14 @@ export default function RegistrationTable() {
         const checkAdmin = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch('/api/check-admin', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
+                const response = await fetch(
+                    'https://wondrous-platypus-ca5251.netlify.app/api/check-admin',
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
                     }
-                });
+                );
                 const data = await response.json();
                 setIsAdmin(data.isAdmin);
             } catch (error) {
