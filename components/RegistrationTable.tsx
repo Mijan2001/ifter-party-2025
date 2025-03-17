@@ -30,11 +30,16 @@ export default function RegistrationTable() {
     useEffect(() => {
         const checkAdmin = async () => {
             try {
-                const response = await fetch('/api/check-admin', {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                const response = await fetch(
+                    'https://unique-seahorse-d6680d.netlify.app/api/check-admin',
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem(
+                                'token'
+                            )}`
+                        }
                     }
-                });
+                );
                 const data = await response.json();
                 setIsAdmin(data.isAdmin);
             } catch (error) {
@@ -44,7 +49,9 @@ export default function RegistrationTable() {
 
         const fetchRegistrations = async () => {
             try {
-                const response = await fetch('/api/registrations');
+                const response = await fetch(
+                    'https://unique-seahorse-d6680d.netlify.app/api/registrations'
+                );
                 const data = await response.json();
                 setRegistrations(data);
             } catch (error) {
