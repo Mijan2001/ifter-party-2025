@@ -46,7 +46,9 @@ export default function RegistrationTable() {
 
         const fetchRegistrations = async () => {
             try {
-                const response = await fetch('/api/registrations');
+                const response = await fetch(
+                    'https://wondrous-platypus-ca5251.netlify.app/api/registrations'
+                );
                 const data = await response.json();
 
                 if (!Array.isArray(data)) {
@@ -71,12 +73,15 @@ export default function RegistrationTable() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`/api/registrations/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    Authorization: `Bearer ${token}`
+            const response = await fetch(
+                `https://wondrous-platypus-ca5251.netlify.app/api/registrations/${id}`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
-            });
+            );
 
             if (response.ok) {
                 setRegistrations(prev => prev.filter(reg => reg._id !== id));
