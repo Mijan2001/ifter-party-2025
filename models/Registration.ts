@@ -11,7 +11,7 @@ const registrationSchema = new mongoose.Schema(
             required: [true, 'Please provide target name']
         },
         moneyAmmount: {
-            type: Number,
+            type: String,
             required: [true, 'Please provide money ammount']
         },
         txnNumber: {
