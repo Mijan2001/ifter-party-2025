@@ -25,6 +25,8 @@ export default function RegistrationTable() {
     const [registrations, setRegistrations] = useState<Registration[]>([]);
     const [isAdmin, setIsAdmin] = useState(false);
 
+    console.log('data====== start==', registrations);
+
     useEffect(() => {
         const checkAdmin = async () => {
             try {
@@ -58,12 +60,15 @@ export default function RegistrationTable() {
         if (!isAdmin) return;
 
         try {
-            const response = await fetch(`/api/registrations/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+            const response = await fetch(
+                `https://unique-seahorse-d6680d.netlify.app/api/registrations/${id}`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
                 }
-            });
+            );
 
             if (response.ok) {
                 setRegistrations(prev => prev.filter(reg => reg._id !== id));
