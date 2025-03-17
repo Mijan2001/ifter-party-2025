@@ -116,7 +116,7 @@ export default function RegistrationForm() {
                                 <FormLabel>টাকার পরিমান(খরচ ছাড়া)</FormLabel>
                                 <FormControl>
                                     <Input
-                                        placeholder="Example: 500"
+                                        placeholder="Example: 400"
                                         {...field}
                                     />
                                 </FormControl>
@@ -132,7 +132,7 @@ export default function RegistrationForm() {
                                 <FormLabel>বিকাশ/নগদের Txn Number</FormLabel>
                                 <FormControl>
                                     <Input
-                                        placeholder="Example: 400"
+                                        placeholder="Example: 543562362362362"
                                         {...field}
                                     />
                                 </FormControl>
