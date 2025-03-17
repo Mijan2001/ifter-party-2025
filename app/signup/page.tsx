@@ -46,7 +46,7 @@ export default function SignUpPage() {
         try {
             setLoading(true);
             const response = await fetch(
-                'https://unique-seahorse-d6680d.netlify.app/api/auth/signup',
+                'https://ifter-party-2025-8d1p.vercel.app/api/auth/signup',
                 {
                     method: 'POST',
                     headers: {

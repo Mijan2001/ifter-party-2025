@@ -46,7 +46,7 @@ export default function RegistrationForm() {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             const response = await fetch(
-                'https://unique-seahorse-d6680d.netlify.app/api/register',
+                'https://ifter-party-2025-8d1p.vercel.app/api/register',
                 {
                     method: 'POST',
                     headers: {

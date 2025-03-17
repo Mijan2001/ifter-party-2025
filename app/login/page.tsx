@@ -39,7 +39,7 @@ export default function LoginPage() {
         try {
             setLoading(true);
             const response = await fetch(
-                'https://unique-seahorse-d6680d.netlify.app/api/auth/login',
+                'https://ifter-party-2025-8d1p.vercel.app/api/auth/login',
                 {
                     method: 'POST',
                     headers: {
