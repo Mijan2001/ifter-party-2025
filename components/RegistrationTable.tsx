@@ -17,6 +17,7 @@ interface Registration {
     _id: string;
     name: string;
     targetName: string;
+    moneyAmmount: string;
     txnNumber: string;
     mobileNumber: string;
 }
@@ -101,6 +102,7 @@ export default function RegistrationTable() {
                     <TableRow>
                         <TableHead>Name</TableHead>
                         <TableHead>Target Name</TableHead>
+                        <TableHead>Money Ammount</TableHead>
                         <TableHead>Transaction Number</TableHead>
                         <TableHead>Mobile Number</TableHead>
                         {isAdmin && <TableHead>Actions</TableHead>}
@@ -111,6 +113,7 @@ export default function RegistrationTable() {
                         <TableRow key={registration._id}>
                             <TableCell>{registration.name}</TableCell>
                             <TableCell>{registration.targetName}</TableCell>
+                            <TableCell>{registration.moneyAmmount}</TableCell>
                             <TableCell>{registration.txnNumber}</TableCell>
                             <TableCell>{registration.mobileNumber}</TableCell>
                             {isAdmin && (

@@ -10,6 +10,10 @@ const registrationSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Please provide target name']
         },
+        moneyAmmount: {
+            type: Number,
+            required: [true, 'Please provide money ammount']
+        },
         txnNumber: {
             type: String,
             required: [true, 'Please provide transaction number'],

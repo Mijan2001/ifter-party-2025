@@ -20,6 +20,9 @@ import RegistrationTable from './RegistrationTable';
 const formSchema = z.object({
     name: z.string().min(2, 'Name must be at least 2 characters'),
     targetName: z.string().min(2, 'Target name must be at least 2 characters'),
+    moneyAmmount: z
+        .string()
+        .min(3, 'Money amount must be at least 3 characters'),
     txnNumber: z
         .string()
         .min(5, 'Transaction number must be at least 5 characters'),
@@ -34,6 +37,7 @@ export default function RegistrationForm() {
         defaultValues: {
             name: '',
             targetName: '',
+            moneyAmmount: '',
             txnNumber: '',
             mobileNumber: ''
         }
@@ -106,13 +110,29 @@ export default function RegistrationForm() {
                     />
                     <FormField
                         control={form.control}
+                        name="moneyAmmount"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>টাকার পরিমান(খরচ ছাড়া)</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        placeholder="Example: 500"
+                                        {...field}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
                         name="txnNumber"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>বিকাশ/নগদের Txn Number</FormLabel>
                                 <FormControl>
                                     <Input
-                                        placeholder="Example: 123456868656378"
+                                        placeholder="Example: 400"
                                         {...field}
                                     />
                                 </FormControl>
